@@ -1,0 +1,78 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.login {
+    height: 100vh;
+}
+
+.header h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+
+    color: #000000;
+}
+
+.header h2 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #BCBCBC;
+    margin-bottom: 30px;
+}
+
+.login-form label {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 29px;
+
+    color: #000000;
+    margin-top: 10px;
+}
+
+.login-form input {
+    height: 50px;
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 10px;
+    color: #000000;
+}
+
+.login-form .button-login {
+    width: 100%;
+    height: 50px;
+    background: #000000;
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin-top: 25px;
+    border: none;
+}
+
+.login-form h1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.login-right h5 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+
+.error {
+    background: #F2DEDE;
+    color: #A94442;
+    padding: 3px;
+    width: 100%;
+    border-radius: 3px;
+}
