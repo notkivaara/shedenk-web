@@ -1,8 +1,6 @@
 <?php
 require('database/koneksi.php');
 
-session_start();
-
 if (isset($_POST['btn_login'])) {
     $user = $_POST['txt_username'];
     $pass = $_POST['txt_password'];
@@ -49,7 +47,7 @@ if (isset($_POST['btn_login'])) {
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!--Style-->
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,7 +82,7 @@ if (isset($_POST['btn_login'])) {
                             <input type="password" name="txt_password" class="field-password" id="password"
                                 placeholder="Masukan Password">
                             <br>
-                            <button type="submit" name="btn_login" class="button-login">LOGIN</button>
+                            <button type="submit" id="btn_login" name="btn_login" class="button-login">LOGIN</button>
                             <br>
                             <h1>Lupa Password? Hubungi Developer</h1>
                         </div>
@@ -92,33 +90,32 @@ if (isset($_POST['btn_login'])) {
                 </div>
             </div>
             <div class="login-right w-50 h-100 ">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="img/login_img1.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>MODIS</h5>
-                            </div>
+                            <img src="assets/img/login_img1.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/login_img2.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>BERKUALITAS</h5>
-                            </div>
+                            <img src="assets/img/login_img2.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/login_img3.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>TERJANGKAU</h5>
-                            </div>
+                            <img src="assets/img/login_img3.jpg" class="d-block w-100" alt="...">
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
