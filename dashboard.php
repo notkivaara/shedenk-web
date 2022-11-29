@@ -29,7 +29,7 @@
                         <div class="stat-content">
                             <div class="text-left dib">
                                 <div class="stat-text"><span class="count">3435</span></div>
-                                <div class="stat-heading">Produk Terj</div>
+                                <div class="stat-heading">Produk Terjual</div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                             <div id="traffic-chart" class="traffic-chart"></div>
                         </div>
                     </div>
-                </div> <!-- /.row -->
+                </div>
             </div>
         </div><!-- /# column -->
     </div>

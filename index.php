@@ -162,7 +162,7 @@
 
         <!-- Content -->
         <div class="content">
-            <h1 class="h3 mb-4 text-gray-800"><?php include  'navigasi.php' ?></h1>
+            <h1 class="h3 mb-4"><?php include 'navigasi.php' ?></h1>
         </div>
         <!-- /.content -->
     </div>
