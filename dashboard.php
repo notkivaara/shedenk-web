@@ -10,7 +10,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text">$<span class="count">23569</span></div>
+                                <div class="stat-text">Rp. <span class="count">213000</span></div>
                                 <div class="stat-heading">Pendapatan</div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                         <div class="stat-content">
                             <div class="text-left dib">
                                 <div class="stat-text"><span class="count">2986</span></div>
-                                <div class="stat-heading">Produk</div>
+                                <div class="stat-heading">Produk Tersisa</div>
                             </div>
                         </div>
                     </div>

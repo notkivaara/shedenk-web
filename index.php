@@ -5,8 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ela Admin - HTML5 Admin Template</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
+    <title>Shedenk Web</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="font-fontawesome.css/all.css">
     <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
@@ -49,7 +48,6 @@
         top: 20px !important;
         right: -10px !important;
     }
-
     .chart-container {
         display: table;
         min-width: 270px;
@@ -57,15 +55,12 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
-
     #flotLine5 {
         height: 105px;
     }
-
     #flotBarChart {
         height: 150px;
     }
-
     #cellPaiChart {
         height: 160px;
     }
@@ -120,7 +115,7 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img class="w-25 h-25" src="images/logoch.PNG" alt="Logo"></a>
+                    <img class="w-25 h-25" src="images/logoch.PNG" alt="Logo">
                     <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
@@ -142,15 +137,7 @@
                                 aria-expanded="false">
                                 <img class="user-avatar rounded-circle" src="images/zein.png" alt="User Avatar">
                             </a>
-
                             <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
-                                        class="count">13</span></a>
-
-                                <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
                                 <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
                             </div>
                         </div>

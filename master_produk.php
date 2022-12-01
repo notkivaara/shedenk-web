@@ -9,13 +9,13 @@
 <body>
     <h1>Master Produk</h1>
     <br>
-    <button type="submit" name="btn-tambah-produk" class="btn-tambah">Tambah</button>
+    <button type="submit" name="btn-tambah-produk" class="btn btn-primary">+ Tambah Data</button>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <input type="text" class="search" placeholder="Cari">
                 <br>
-                <table border="1" align="center">
+                <table class="table" border="1" align="center">
                     <tr>
                         <th width="50">No</th>
                         <th width="50">Id</th>
