@@ -1,6 +1,17 @@
 <?php
 require('database/koneksi.php');
 
-$id = $_GET['id'];
-mysqli_query($koneksi, "DELETE FROM kategori WHERE id = '$id'") or die(mysqli_connect_error());
-header("location: kategori.php");
+if (isset($_POST['hapus_kategori'])) {
+
+    $hapus = mysqli_query($koneksi, "DELETE FROM kategori WHERE id = '$_POST[idkategori]' ");
+
+    if ($hapus) {
+        echo "<script>alert('Berhasil Menghapus Data');
+                document.location='index.php?url=kategori';
+            </script>";
+    } else {
+        echo "<script>alert('Gagal Menghapus Data');
+                document.location='index.php?url=kategori';
+            </script>";
+    }
+}
