@@ -17,7 +17,7 @@ require('database/koneksi.php');
 <body>
     <h1>Master Kategori</h1>
     <br>
-    <button type="submit" name="btn-tambah-kategori" class="btn-tambah">Tambah</button>
+    <a href="#"><input type="button" class="btn-tambah" data-bs-toggle="modal" data-bs-target="#modalTambahKategori"></a>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">

@@ -25,7 +25,7 @@
                         <form>
                         <div class="mb-3">
                             <label for="nama" class="col-form-label">Nama</label>
-                            <input type="text" class="form-control" id="nama">
+                            <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Produk">
                         </div>
                         <!-- <div class="mb-3">
                             <div class="input-prepend input-append">
@@ -47,22 +47,16 @@
                         <div class="mb-3">
 							<label class="form-label">Kategori</label>
 							<select class="form-select" name="text-Tingkatan">
-								<option></option>
+								<option>Pilih Kategori</option>
 								<option value="Hoodie">Hoodie</option>
 						        <option value="Kaos">Kaos</option>
 								<option value="Celana">Celana</option>
 							</select>
 						</div>
-                        <div class="mb-3">
-                            <label for="harga" class="col-form-label">Harga</label>
-                            <div class="row">
-                                <div class="col-2">
-                                    <input type="text" class="form-control" placeholder="Rp." disabled>
-                                </div>
-                                <div class="col-10">
-                                <input type="text" class="form-control" id="harga">
-                                </div>
-                            </div>
+                        <label for="harga" class="form-label">Harga</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Rp</span>
+                            <input type="text" class="form-control" aria-label="rupiah">
                         </div>
                         <div class="mb-5">
                             <label for="Image" class="form-label">Foto Produk</label>
@@ -100,8 +94,8 @@
                         <td>Baju </td>
                         <td>Rp. 250.000</td>
                         <td>
-                            <a href="edit_kategori.php?id=" class="btn btn-warning" role="button" >Edit</a>
-                            <a href="hapus_kategori.php?id=" class="btn btn-danger" role="button" >Hapus</a>    
+                            <a href="edit_kategori.php?id=" class="btn btn-warning" role="button">Edit</a>
+                            <a href="hapus_kategori.php?id=" class="btn btn-danger" role="button">Hapus</a>    
                         </td>
                     </tr>
                 </table>
