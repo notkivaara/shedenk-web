@@ -154,7 +154,7 @@ $result_rkategori=$produk->getKategori();
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Kategori</label>
-                                                <select class="form-select" name="text-Kategori">
+                                                <select class="form-select" name="tkategori_editproduk">
                                                     <?php
                                                         $result_rkategoribyid=$produk->getKategori();
                                                         $produk->showKategoriById($result_rkategoribyid,$id_kategori);
@@ -164,16 +164,15 @@ $result_rkategori=$produk->getKategori();
                                             <label for="harga" class="form-label">Harga</label>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text">Rp</span>
-                                                <input type="text" class="form-control" aria-label="rupiah" value="<?= $harga?>">
+                                                <input type="text" class="form-control" name="tharga_editproduk" aria-label="rupiah" value="<?= $harga?>">
                                             </div>
-                                            <fieldset>
+                                            <fieldset name="tstatus_editproduk">
                                                 <label for="status" class="form-label">Status</label>
                                                 <?php
                                                     $result_rstatusbyid=$produk->getStatusById($id);
                                                     // var_dump($result_rstatusbyid);
                                                     $produk->showStatusById($result_rstatusbyid);
                                                 ?>
-                                                
                                             </fieldset>
                                         </div>
                                         <div class="modal-footer">

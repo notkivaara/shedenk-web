@@ -68,20 +68,20 @@ class produk extends database {
         while($row = mysqli_fetch_array($result_rstatusbyid)){
             if($row['status']=="Tersedia"){
                 echo "<div>
-                    <input type='radio' id='tersedia' name='drone' value='Tersedia' checked>
+                    <input type='radio' id='tersedia' name='tstatus_editproduk' value='Tersedia' checked>
                     <label for='tersedia'>Tersedia</label>
                 </div>
                 <div> 
-                    <input type='radio' id='terjual' name='drone' value='Terjual'>
+                    <input type='radio' id='terjual' name='tstatus_editproduk' value='Terjual'>
                     <label for='terjual'>Terjual</label>
                 </div>";
             } else {
                 echo "<div>
-                    <input type='radio' id='tersedia' name='drone' value='Tersedia'>
+                    <input type='radio' id='tersedia' name='tstatus_editproduk' value='Tersedia'>
                     <label for='tersedia'>Tersedia</label>
                 </div>
                 <div> 
-                    <input type='radio' id='terjual' name='drone' value='Terjual' checked>
+                    <input type='radio' id='terjual' name='tstatus_editproduk' value='Terjual' checked>
                     <label for='terjual'>Terjual</label>
                 </div>";
             }
