@@ -2,30 +2,32 @@
 require('database/koneksi.php');
 
 if (isset($_POST['btn_login'])) {
-    $user = $_POST['txt_username'];
+    $user = $_POST['txt_email'];
     $pass = $_POST['txt_password'];
 
     if (!empty(trim($user)) && !empty(trim($pass))) {
 
-        $query = "SELECT * FROM admin_default WHERE username = '$user'";
+        $query = "SELECT * FROM akun WHERE email = '$user'";
         $result = mysqli_query($koneksi, $query);
         $num = mysqli_num_rows($result);
         while ($row = mysqli_fetch_array($result)) {
 
-            $id = $row['id'];
-            $userVal = $row['username'];
+            $userVal = $row['email'];
             $passVal = $row['password'];
+            $role = $row['id_role'];
         }
 
         if ($num != 0) {
             if ($userVal == $user && $passVal == $pass) {
-                header('Location: home.php');
+                if ($role == 1) {
+                    header('Location: home.php');
+                }
             } else {
                 header('Location: index.php?error= Username atau Password Salah!');
                 exit();
             }
         } else {
-            header('Location: index.php?error= User tidak Ditemukan!');
+            header('Location: index.php?error= Admin tidak Ditemukan!');
             exit();
         }
     } else {
@@ -47,13 +49,7 @@ if (isset($_POST['btn_login'])) {
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!--Style-->
-    <link rel="stylesheet" href="assets/css/login.css">
-
-    <!--Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/login.css">
 
     <title>Login Page</title>
 </head>
@@ -74,8 +70,8 @@ if (isset($_POST['btn_login'])) {
                             <?php } ?>
                         </div>
                         <div class="login-form">
-                            <label for="username" class="label-username">Username</label><br>
-                            <input type="text" name="txt_username" class="field-username" id="username"
+                            <label for="username" class="label-username">Email</label><br>
+                            <input type="text" name="txt_email" class="field-username" id="username"
                                 placeholder="Masukan Username">
                             <br>
                             <label for="password" class="label-password">Password</label><br>
@@ -101,7 +97,7 @@ if (isset($_POST['btn_login'])) {
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="assets/img/login_img1.jpg" class="d-block w-100" alt="...">
+                            <img src="assets/img/login_img1.jpg" class="d-block w-100 " alt="...">
                         </div>
                         <div class="carousel-item">
                             <img src="assets/img/login_img2.jpg" class="d-block w-100" alt="...">
