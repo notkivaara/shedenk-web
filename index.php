@@ -149,7 +149,10 @@
                                 <img class="user-avatar rounded-circle" src="images/zein.png" alt="User Avatar">
                             </a>
                             <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                                <li><i class="profile"></i><a href="#">Profile</a>
+                                    <h1></h1>
+                                </li>
+                                <li><i class="profile"></i><a href="#">Logout</a></li>
                             </div>
                         </div>
 

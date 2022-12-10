@@ -48,7 +48,7 @@ require('database/koneksi.php');
                             <th>Terakhir Update</th>
                             <th colspan="2">Aksi</th>
                         </tr>
-                        <!-- Menampilkan Data User -->
+                        <!-- Menampilkan Data Admin -->
                         <?php
                         $query = "SELECT * FROM akun WHERE id_role = 1";
                         $result = mysqli_query($koneksi, $query);
@@ -71,17 +71,83 @@ require('database/koneksi.php');
                             <td><?php echo $tupd; ?></td>
                             <td>
                                 <a href="#"><input type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditUser<?= $no ?>" value="Edit"></a>
+                                        data-bs-target="#modalEditAdmin<?= $no ?>" value="Edit"></a>
                                 <a href="#"><input type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#modalHapusUser<?= $no ?>" value="Hapus"></a>
+                                        data-bs-target="#modalHapusAdmin<?= $no ?>" value="Hapus"></a>
                             </td>
 
-                            <!-- Modal Edit User -->
+                            <!-- Modal Edit Admin -->
+                            <div class="modal fade" id="modalEditAdmin<?= $no ?>" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Kategori</h1>
+                                        </div>
 
-                            <!-- End Modal Edit User -->
+                                        <form action="edit_admin.php" method="POST">
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Id Admin</label>
+                                                    <input type="text" class="form-control" value="<?php echo $id ?>"
+                                                        name="tid_editadmin" readonly>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Nama Admin</label>
+                                                    <input type="text" class="form-control" value="<?php echo $nama ?>"
+                                                        name="tnama_editadmin" placeholder="Masukan Nama" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Email</label>
+                                                    <input type="text" class="form-control" value="<?php echo $email ?>"
+                                                        name="temail_editadmin" placeholder="Masukan Email" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Password</label>
+                                                    <input type="text" class="form-control"
+                                                        value="<?php echo $password ?>" name="tpass_editadmin"
+                                                        placeholder="Masukan Password" required>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger"
+                                                    data-bs-dismiss="modal">Keluar</button>
+                                                <button type="submit" class="btn btn-primary"
+                                                    name="simpan_editadmin">Tambahkan</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Modal Edit Admin -->
 
                             <!-- Modal Hapus Kategori-->
-
+                            <div class="modal fade" id="modalHapusAdmin<?= $no ?>" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Kategori
+                                            </h1>
+                                        </div>
+                                        <form action="hapus_admin.php" method="POST">
+                                            <input type="hidden" name="idadmin" value="<?= $id ?>">
+                                            <div class="modal-body">
+                                                <h5 class="text-center">Apakah Anda Ingin Menghapus <?= $nama ?>?
+                                                </h5>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger"
+                                                    data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-primary"
+                                                    name="hapus_admin">Hapus</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- End Modal Hapus Kategori -->
                         </tr>
                         </tr>
