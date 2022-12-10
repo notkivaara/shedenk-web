@@ -48,6 +48,7 @@
         top: 20px !important;
         right: -10px !important;
     }
+
     .chart-container {
         display: table;
         min-width: 270px;
@@ -55,12 +56,15 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
+
     #flotLine5 {
         height: 105px;
     }
+
     #flotBarChart {
         height: 150px;
     }
+
     #cellPaiChart {
         height: 160px;
     }
@@ -92,10 +96,17 @@
                             <hr>
                         </ul>
                     </li>
-                    <li>
-                        <a href="?url=user" aria-haspopup="true" aria-expanded="false"> <i
-                                class="menu-icon fa fa-table"></i>User</a>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Akun</a>
                         <hr>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-id-badge"></i><a href="?url=user">User</a>
+                                <h1></h1>
+                            </li>
+                            <li><i class="fa fa-bars"></i><a href="?url=admin">Admin</a></li>
+                            <hr>
+                        </ul>
                     </li>
                     <li>
                         <a href="?url=transaksi" aria-haspopup="true" aria-expanded="false"> <i

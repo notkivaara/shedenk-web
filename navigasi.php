@@ -12,7 +12,10 @@ if (isset($_GET['url'])) {
             include 'master_kategori.php';
             break;
         case 'user':
-            include 'user.php';
+            include 'akun_user.php';
+            break;
+        case 'admin':
+            include 'akun_admin.php';
             break;
         case 'transaksi':
             include 'riwayat_transaksi.php.';
