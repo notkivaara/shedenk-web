@@ -1,5 +1,6 @@
 <?php
 include_once 'database/produk.php';
+include_once 'database/koneksi.php';
 $produk = new produk();
 $produk->connectMySQL();
 $result_rkategori=$produk->getKategori();
@@ -18,16 +19,17 @@ $result_rkategori=$produk->getKategori();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
     <script src="https://malsup.github.io/jquery.form.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/custom.css">
 </head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link rel="stylesheet" href="assets/css/custom.css">
 <body>
     <h1>Master Produk</h1>
     <div class="card">
         <div class="card-body">
         <div class="row">
             <div class="col-lg-3">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#btn-tambah">+ Tambah Data</button>
+                <!-- btn_tambah atau modalmodalTambahProduk di ID-->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTambahProduk">+ Tambah Data</button>
                 <div class="modal fade" id="btn-tambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -37,32 +39,31 @@ $result_rkategori=$produk->getKategori();
                     </div>
                     <div class="modal-body">
                         <!-- FORM TAMBAH DATA -->
-                        <form>
+                        <form action="tambah_produk.php" method="POST">
                         <div class="mb-3">
                             <label class="form-label">Id Produk</label>
-                            <input type="text" class="form-control" value="<?php echo $produk->autoGenerateId();?>" name="id_produk" readonly>
+                            <input type="text" class="form-control" value="<?php echo $produk->autoGenerateIdProduk();?>" name="id_produk" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="nama" class="col-form-label">Nama</label>
-                            <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Produk">
+                            <input type="text" class="form-control" id="nama" name="nama_produk" placeholder="Masukkan Nama Produk">
                         </div>
                         <div class="mb-3">
 							<label class="form-label">Kategori</label>
-							<select class="form-select" name="text-Kategori">
+							<select class="form-select" name="id_kategori">
 								<option>Pilih Kategori</option>
 								<?php
-                                    $produk->showKategori($result_rkategori);
+                                    // $produk->showKategori($result_rkategori);
                                 ?>
 							</select>
 						</div>
                         <label for="harga" class="form-label">Harga</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Rp</span>
-                            <input type="text" class="form-control" aria-label="rupiah">
+                            <input type="text" class="form-control" name="harga_produk" aria-label="rupiah">
                         </div>
                         <div class="mb-3">
                             <input type="file" id="upload_file" name="upload_file[]" onchange="preview_image();" multiple/>
-                            <input type="submit" name='submit_image' value="Upload Image"/>
                         </div>
                         <div class="mb-3">
                             <div class="row">
@@ -71,17 +72,73 @@ $result_rkategori=$produk->getKategori();
                                 </div>
                             </div>
                         </div>                    
-                    </form>
+
                     <!-- END FORM TAMBAH DATA  -->
                         <div class="row" id="image_preview"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary">Tambah</button>
+                        <button type="button" class="btn btn-primary" name="submit-tambah-produk">Tambah</button>
                     </div>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            <!-- BUTTON BAWAH CONTOH -->
+            <div class="modal fade" id="modalTambahProduk" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Produk</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <!-- Auto Generate Id -->
+                        <form action="tambah_produk.php" method="POST">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Id Produk</label>
+                                    <input type="text" class="form-control" value="<?php echo $produk->autoGenerateIdProduk();?>" name="id_produk" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nama" class="col-form-label">Nama</label>
+                                    <input type="text" class="form-control" id="nama" name="nama_produk" placeholder="Masukkan Nama Produk">
+                                </div>
+                                <div class="mb-3">
+							        <label class="form-label">Kategori</label>
+							        <select class="form-select" name="id_kategori">
+								        <option>Pilih Kategori</option>
+								            <?php
+                                                $produk->showKategori($result_rkategori);
+                                            ?>
+							        </select>
+						        </div>
+                                <label for="harga" class="form-label">Harga</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Rp</span>
+                                    <input type="text" class="form-control" name="harga_produk" aria-label="rupiah">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="file" id="upload_file" name="upload_file[]" onchange="preview_image();" multiple/>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label for="preview" class="form-label">Preview</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" id="image_preview"></div> 
+                            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                                    <button type="submit" class="btn btn-primary" name="simpan_tambahkategori">Simpan</button>
+                                </div>
+                        </form>
                     </div>
                 </div>
-                </div>        
+            </div>
+            <!-- END BUTTON BAWAH CONTOH -->
             <!-- <button type="submit" name="btn_tambah" class="btn btn-primary">+ Tambah Data</button> -->
             </div>
         </div>
@@ -177,7 +234,7 @@ $result_rkategori=$produk->getKategori();
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger"
-                                                data-bs-dismiss="modal">Keluar</button>
+                                                data-bs-dismiss="modal">Batal</button>
                                             <button type="submit" class="btn btn-primary"
                                                 name="simpan_editproduk">Simpan</button>
                                         </div>

@@ -1,16 +1,16 @@
 <div class="animated fadeIn">
     <!-- Widgets  -->
     <div class="row">
-        <div class="col-lg-3 col-md-6">
+    <div class="col-lg-3 col-md-6">
             <div class="card">
                 <div class="card-body">
                     <div class="stat-widget-five">
-                        <div class="stat-icon dib flat-color-1">
-                            <a href="#"><i class="fa-solid fa-dollar-sign text-primary"></i></a>
+                        <div class="stat-icon dib flat-color-2">
+                            <a href="#"><i class="fa-solid fa-dollar text-primary"></i></a>
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text">Rp. <span class="count">213000</span></div>
+                                <div class="stat-text">Rp.<span class="count">2000</span></div>
                                 <div class="stat-heading">Pendapatan</div>
                             </div>
                         </div>

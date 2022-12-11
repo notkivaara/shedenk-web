@@ -1,7 +1,7 @@
 <?php
 include 'database.php';
 class produk extends database {
-    public function autoGenerateId(){
+    public function autoGenerateIdProduk(){
         $sql="select max(id) as max_code from produk";
         $auto = mysqli_query($this->con, $sql);
         $data = mysqli_fetch_array($auto);
@@ -18,7 +18,7 @@ class produk extends database {
     }
     public function showKategori($result_rkategori){
         while($row = mysqli_fetch_array($result_rkategori)){
-            echo "<option value='".$row['id']."'>".$row['nama']."</option>ss";
+            echo "<option value='".$row['id']."'>".$row['nama']."</option>";
         }
     }
     public function showKategoriById($result_rkategoribyid,$id){
