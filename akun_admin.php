@@ -24,7 +24,7 @@ require('database/koneksi.php');
 <link rel="stylesheet" href="assets/css/custom.css">
 
 <body>
-    <h1>Admin</h1>
+    <h1>Data Admin</h1>
     <br>
     <div class="card">
         <div class="card-body">
@@ -103,11 +103,19 @@ require('database/koneksi.php');
                                                     <input type="text" class="form-control" value="<?php echo $email ?>"
                                                         name="temail_editadmin" placeholder="Masukan Email" required>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Password</label>
-                                                    <input type="text" class="form-control"
-                                                        value="<?php echo $password ?>" name="tpass_editadmin"
-                                                        placeholder="Masukan Password" required>
+                                                <div class="row g-3 align-items-center">
+                                                    <div class="col-auto">
+                                                        <label class="form-label">Password</label>
+                                                        <input type="text" class="form-control"
+                                                            value="<?php echo $password ?> " name=" tpass_editadmin"
+                                                            placeholder="Masukan Password" required>
+                                                    </div>
+                                                    <div class="col-auto ">
+                                                        <label class="form-label">Konfirmasi Password</label>
+                                                        <input type="text" class="form-control"
+                                                            name=" tkonpass_editadmin" placeholder="Masukan Password"
+                                                            required>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -193,10 +201,17 @@ require('database/koneksi.php');
                                         <input type="text" class="form-control" name="temail_tambahadmin"
                                             placeholder="Masukan Email" required>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Password</label>
-                                        <input type="text" class="form-control" name="tpass_tambahadmin"
-                                            placeholder="Masukan Password" required>
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-auto">
+                                            <label class="form-label">Password</label>
+                                            <input type="text" class="form-control" value="<?php echo $password ?> "
+                                                name=" tpass_tambahadmin" placeholder="Masukan Password" required>
+                                        </div>
+                                        <div class="col-auto ">
+                                            <label class="form-label">Konfirmasi Password</label>
+                                            <input type="text" class="form-control" name=" tkonpass_tambahadmin"
+                                                placeholder="Masukan Password" required>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

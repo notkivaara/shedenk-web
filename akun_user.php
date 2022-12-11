@@ -24,7 +24,7 @@ require('database/koneksi.php');
 <link rel="stylesheet" href="assets/css/custom.css">
 
 <body>
-    <h1>User</h1>
+    <h1>Data User</h1>
     <br>
     <div class="card">
         <div class="card-body">
@@ -38,7 +38,6 @@ require('database/koneksi.php');
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Password</th>
-                            <th>Kota</th>
                             <th>Hobi</th>
                             <th>Tanggal Register</th>
                             <th>Terakhir Update</th>
@@ -54,7 +53,6 @@ require('database/koneksi.php');
                             $nama = $row['nama'];
                             $email = $row['email'];
                             $password = $row['password'];
-                            $kota = $row['kota'];
                             $hobi = $row['hobi'];
                             $treg = $row['tgl_register'];
                             $tupd = $row['tgl_update'];
@@ -67,7 +65,6 @@ require('database/koneksi.php');
                             <td><?php echo $nama; ?></td>
                             <td><?php echo $email; ?></td>
                             <td><?php echo $password; ?></td>
-                            <td><?php echo $kota; ?></td>
                             <td><?php echo $hobi; ?></td>
                             <td><?php echo $treg; ?></td>
                             <td><?php echo $tupd; ?></td>
@@ -105,22 +102,27 @@ require('database/koneksi.php');
                                                         value="<?php echo $email ?> " name=" temail_editUser"
                                                         placeholder="Masukan Email" required>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Password</label>
-                                                    <input type="text" class="form-control"
-                                                        value="<?php echo $password ?> " name=" tpass_editUser"
-                                                        placeholder="Masukan Password" required>
+                                                <div class="row g-3 align-items-center">
+                                                    <div class="col-auto">
+                                                        <label class="form-label">Password</label>
+                                                        <input type="text" class="form-control"
+                                                            value="<?php echo $password ?> " name=" tpass_editUser"
+                                                            placeholder="Masukan Password" required>
+                                                    </div>
+                                                    <div class="col-auto ">
+                                                        <label class="form-label">Konfirmasi Password</label>
+                                                        <input type="text" class="form-control"
+                                                            name=" tkonpass_editUser" placeholder="Masukan Password"
+                                                            required>
+                                                    </div>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Kota</label>
-                                                    <input type="text" class="form-control" value="<?php echo $kota ?> "
-                                                        name=" tkota_editUser" placeholder="Masukan Kota" required>
-                                                </div>
+                                                <br>
                                                 <div class="mb-3">
                                                     <label class="form-label">Hobi</label>
                                                     <input type="text" class="form-control" value="<?php echo $hobi ?> "
                                                         name=" thobi_editUser" placeholder="Masukan Hobi" required>
                                                 </div>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-danger"
