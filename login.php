@@ -1,25 +1,34 @@
 <?php
 require('database/koneksi.php');
+session_start();
 
 if (isset($_POST['btn_login'])) {
-    $user = $_POST['txt_email'];
+    $email = $_POST['txt_email'];
     $pass = $_POST['txt_password'];
 
-    if (!empty(trim($user)) && !empty(trim($pass))) {
+    if (!empty(trim($email)) && !empty(trim($pass))) {
 
-        $query = "SELECT * FROM akun WHERE email = '$user'";
+        $query = "SELECT * FROM akun WHERE email = '$email'";
         $result = mysqli_query($koneksi, $query);
         $num = mysqli_num_rows($result);
         while ($row = mysqli_fetch_array($result)) {
 
-            $userVal = $row['email'];
+            $id = $row['id'];
+            $nama = $row['nama'];
+            $emailVal = $row['email'];
             $passVal = $row['password'];
             $role = $row['id_role'];
         }
 
         if ($num != 0) {
-            if ($userVal == $user && $passVal == $pass) {
+            if ($emailVal == $email && $passVal == $pass) {
                 if ($role == 1) {
+
+                    $_SESSION['id'] = $id;
+                    $_SESSION['nama'] = $nama;
+                    $_SESSION['email'] = $emailVal;
+                    $_SESSION['password'] = $passVal;
+
                     header('Location: index.php?url=dashboard');
                 }
             } else {
