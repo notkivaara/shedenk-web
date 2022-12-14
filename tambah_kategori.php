@@ -8,7 +8,7 @@ if (isset($_POST['simpan_tambahkategori'])) {
                                   VALUES ('$_POST[tid_tambahkategori]',
                                            '$_POST[tnama_tambahkategori]')");
     if ($tambah) {
-        echo "<script>alert('Berhasil Menambahkan Data');
+        echo "<script>alert('Kategori Berhasil ditambahkan');
                 document.location='index.php?url=kategori';
             </script>";
     } else {

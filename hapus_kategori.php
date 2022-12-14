@@ -6,7 +6,7 @@ if (isset($_POST['hapus_kategori'])) {
     $hapus = mysqli_query($koneksi, "DELETE FROM kategori WHERE id = '$_POST[idkategori]' ");
 
     if ($hapus) {
-        echo "<script>alert('Berhasil Menghapus Data');
+        echo "<script>alert('Kategori berhasil dihapus');
                 document.location='index.php?url=kategori';
             </script>";
     } else {
