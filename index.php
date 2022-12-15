@@ -29,7 +29,8 @@ $sesPass = $_SESSION['password'];
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -167,7 +168,7 @@ $sesPass = $_SESSION['password'];
                                         data-bs-target="#modalprofile">Profile</a>
                                     <h1></h1>
                                 </li>
-                                <li><i class=" profile"></i><a href="logout.php">Logout</a></li>
+                                <li><i class="logout"></i><a href="logout.php">Logout</a></li>
                             </div>
                         </div>
 
@@ -192,13 +193,11 @@ $sesPass = $_SESSION['password'];
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Profile</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="" method="POST">
+                <form action="edit_profile.php" method="POST">
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <label class="form-label">Id Profile</label>
-                            <input type="text" class="form-control" value="<?php echo $sesId ?>" name="tid_profile"
-                                readonly>
-                        </div>
+
+                        <input type="hidden" class="form-control" value="<?php echo $sesId ?>" name="tid_profile"
+                            readonly>
                         <div class="mb-3">
                             <label class="form-label">Nama User</label>
                             <input type="text" class="form-control" value="<?php echo $sesNama ?>" name="tnama_profile"
@@ -210,11 +209,11 @@ $sesPass = $_SESSION['password'];
                                 name=" temail_profile" placeholder="Masukan Email" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Password Lama</label>
-                            <input type="email" class="form-control" value="<?php echo $sesPass ?>"
-                                name=" tpasslama_profile" placeholder="Masukan Password" required>
+                            <label class="form-label">Password</label>
+                            <input type="text" class="form-control" value="<?php echo $sesPass ?>" name=" tpass_profile"
+                                placeholder="Masukan Password" required>
                         </div>
-                        <div class="row g-3 align-items-center">
+                        <!-- <div class="row g-3 align-items-center">
                             <div class="col-auto">
                                 <label class="form-label">Password Baru</label>
                                 <input type="text" class="form-control" value="" name=" tpassbaru_profile"
@@ -225,11 +224,11 @@ $sesPass = $_SESSION['password'];
                                 <input type="text" class="form-control" name=" tkonpass_profile"
                                     placeholder="Masukan Password" required>
                             </div>
-                        </div>
+                        </div> -->
                         <br>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="button" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary" name="btn_simpanprofile">Simpan</button>
                         </div>
                     </div>
                 </form>
