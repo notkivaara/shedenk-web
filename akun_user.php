@@ -82,7 +82,7 @@ require('database/koneksi.php');
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah User</h1>
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit User</h1>
                                         </div>
                                         <form action="edit_user.php" method="POST">
                                             <div class="modal-body">
@@ -102,12 +102,17 @@ require('database/koneksi.php');
                                                         value="<?php echo $email ?> " name=" temail_editUser"
                                                         placeholder="Masukan Email" required>
                                                 </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Hobi</label>
+                                                    <input type="text" class="form-control" value="<?php echo $hobi ?> "
+                                                        name=" thobi_editUser" placeholder="Masukan Hobi" required>
+                                                </div>
                                                 <div class="row g-3 align-items-center">
                                                     <div class="col-auto">
-                                                        <label class="form-label">Password</label>
-                                                        <input type="text" class="form-control"
-                                                            value="<?php echo $password ?> " name=" tpass_editUser"
-                                                            placeholder="Masukan Password" required>
+                                                        <label class="form-label">Password Baru/Lama</label>
+                                                        <input type="text" class="form-control" name=" tpass_editUser"
+                                                            value="<?php echo $password ?> " placeholder="Masukan
+                                                            Password" required>
                                                     </div>
                                                     <div class="col-auto ">
                                                         <label class="form-label">Konfirmasi Password</label>
@@ -116,13 +121,6 @@ require('database/koneksi.php');
                                                             required>
                                                     </div>
                                                 </div>
-                                                <br>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Hobi</label>
-                                                    <input type="text" class="form-control" value="<?php echo $hobi ?> "
-                                                        name=" thobi_editUser" placeholder="Masukan Hobi" required>
-                                                </div>
-
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-danger"

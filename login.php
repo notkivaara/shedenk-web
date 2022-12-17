@@ -1,5 +1,6 @@
 <?php
 require('database/koneksi.php');
+
 session_start();
 
 if (isset($_POST['btn_login'])) {
@@ -30,6 +31,16 @@ if (isset($_POST['btn_login'])) {
                     $_SESSION['password'] = $passVal;
 
                     header('Location: index.php?url=dashboard');
+                } else if ($role == 3) {
+                    $_SESSION['id'] = $id;
+                    $_SESSION['nama'] = $nama;
+                    $_SESSION['email'] = $emailVal;
+                    $_SESSION['password'] = $passVal;
+
+                    header('Location: index.php?url=dashboard');
+                } else {
+                    header('Location: login.php?error= Kamu Bukan Seorang Admin!');
+                    exit();
                 }
             } else {
                 header('Location: login.php?error= Username atau Password Salah!');
@@ -74,7 +85,7 @@ if (isset($_POST['btn_login'])) {
                 <input type="text" placeholder="Masukan Email" name="txt_email">
                 <label for="">Password</label>
                 <input type="password" placeholder="Masukan Password" name="txt_password">
-                <button type="submit" class="button-login" name="btn_login">Login</button>
+                <button type="submit" class="button-login" name="btn_login" id="btn-login">Login</button>
                 <br>
                 <a href="?url=lupapassword">Lupa Password</a>
             </form>
@@ -116,6 +127,8 @@ if (isset($_POST['btn_login'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
+    <script src="js/sweetalert2.min.js"></script>
+
 </body>
 
 </html>
