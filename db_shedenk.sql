@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2022 at 02:47 AM
+-- Generation Time: Dec 18, 2022 at 06:42 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -35,9 +35,18 @@ CREATE TABLE `akun` (
   `kota` varchar(50) NOT NULL,
   `hobi` varchar(30) NOT NULL,
   `tgl_register` date NOT NULL,
-  `tgl_update` date NOT NULL,
+  `tgl_update` date DEFAULT NULL,
   `id_role` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `akun`
+--
+
+INSERT INTO `akun` (`id`, `nama`, `email`, `password`, `kota`, `hobi`, `tgl_register`, `tgl_update`, `id_role`) VALUES
+('A00001', 'Satria Yuda Pamungkas', 'aremayuda@gmail.com', '123456', 'Situbondo', 'Sepak Bola', '2022-12-04', '0000-00-00', 2),
+('A00002', 'Admin 1', 'admin@shedenk.com', 'admin123', 'Jember', 'Badminton', '2022-12-04', NULL, 1),
+('A001', 'Admin 2', 'admin2@gmail.com', 'admin222 ', '', '', '0000-00-00', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -54,6 +63,26 @@ CREATE TABLE `detail_transaksi` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gambar`
+--
+
+CREATE TABLE `gambar` (
+  `id_produk` char(6) NOT NULL,
+  `nama` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `gambar`
+--
+
+INSERT INTO `gambar` (`id_produk`, `nama`) VALUES
+('P00001', '16-12-2022-P00001celana1.jpg'),
+('P00001', '16-12-2022-P00001celana2.jpg'),
+('P00001', '16-12-2022-P00001download.jpeg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `kategori`
 --
 
@@ -61,6 +90,20 @@ CREATE TABLE `kategori` (
   `id` char(6) NOT NULL,
   `nama` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id`, `nama`) VALUES
+('K001', 'tes kategori'),
+('K002', 'Hoodiexxxx'),
+('K003', 'T-Shirt'),
+('K004', 'Topi'),
+('K005', 'Celana'),
+('K006', 'Bomber'),
+('K007', 'contoh kategori'),
+('K008', 'tes kategori');
 
 -- --------------------------------------------------------
 
@@ -71,13 +114,18 @@ CREATE TABLE `kategori` (
 CREATE TABLE `produk` (
   `id` char(6) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `tgl_masuk` date NOT NULL,
-  `tgl_terjual` date NOT NULL,
-  `gambar` varchar(50) NOT NULL,
+  `tgl_terjual` date DEFAULT NULL,
   `id_kategori` char(6) NOT NULL,
   `harga` int(11) NOT NULL,
   `status` enum('Tersedia','Terjual') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `produk`
+--
+
+INSERT INTO `produk` (`id`, `nama`, `tgl_terjual`, `id_kategori`, `harga`, `status`) VALUES
+('P00001', 'Celana Panjang Hitam ', NULL, 'K005', 75000, 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -107,8 +155,8 @@ INSERT INTO `role` (`id_role`, `nama_role`) VALUES
 CREATE TABLE `transaksi` (
   `id` char(6) NOT NULL,
   `tgl_transaksi` date NOT NULL,
-  `jumlah_barang` smallint(6) NOT NULL,
-  `total_harga` int(11) NOT NULL
+  `total_harga` int(11) NOT NULL,
+  `id_akun` char(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -152,7 +200,8 @@ ALTER TABLE `role`
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_akun` (`id_akun`);
 
 --
 -- Constraints for dumped tables
@@ -176,6 +225,12 @@ ALTER TABLE `detail_transaksi`
 --
 ALTER TABLE `produk`
   ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`);
+
+--
+-- Constraints for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_akun`) REFERENCES `akun` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
