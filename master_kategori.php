@@ -1,7 +1,3 @@
-<?php
-require('database/koneksi.php');
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -51,6 +47,9 @@ require('database/koneksi.php');
 
                         <!-- Menampilkan Data Kategori -->
                         <?php
+
+                        include 'database/koneksi.php';
+
                         $query = "SELECT * FROM kategori";
                         $result = mysqli_query($koneksi, $query);
                         $no = 1;
@@ -81,7 +80,7 @@ require('database/koneksi.php');
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Kategori</h1>
                                         </div>
-                                        <form action="edit_kategori.php" method="POST">
+                                        <form action="controller/crudkategori.php" method="POST">
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Kategori</label>
@@ -116,7 +115,7 @@ require('database/koneksi.php');
                                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Kategori
                                             </h1>
                                         </div>
-                                        <form action="hapus_kategori.php" method="POST">
+                                        <form action="controller/crudkategori.php" method="POST">
                                             <input type="hidden" name="idkategori" value="<?= $id ?>">
                                             <div class="modal-body">
                                                 <h5 class="text-center">Apakah Anda Ingin Menghapus <?= $nama ?>?
@@ -151,6 +150,8 @@ require('database/koneksi.php');
 
                             <!-- Auto Generate Id Kategori-->
                             <?php
+                            include 'database/koneksi.php';
+
                             $auto = mysqli_query($koneksi, "select max(id) as max_code from kategori");
                             $data = mysqli_fetch_array($auto);
                             $code = $data['max_code'];
@@ -160,7 +161,7 @@ require('database/koneksi.php');
                             $id_kat = $huruf . sprintf("%03s", $urutan);
                             ?>
 
-                            <form action="tambah_kategori.php" method="POST">
+                            <form action="controller/crudkategori.php" method="POST">
                                 <div class="modal-body">
                                     <div class="mb-3">
                                         <label class="form-label">Id Kategori</label>

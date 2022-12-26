@@ -1,6 +1,3 @@
-<?php
-require('database/koneksi.php');
-?>
 <html>
 
 <head>
@@ -45,6 +42,8 @@ require('database/koneksi.php');
                         </tr>
                         <!-- Menampilkan Data User -->
                         <?php
+                        include 'database/koneksi.php';
+
                         $query = "SELECT * FROM akun WHERE id_role = 2";
                         $result = mysqli_query($koneksi, $query);
                         $no = 1;
@@ -84,7 +83,7 @@ require('database/koneksi.php');
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit User</h1>
                                         </div>
-                                        <form action="edit_user.php" method="POST">
+                                        <form action="controller/cruduser.php" method="POST">
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id User</label>
@@ -100,7 +99,7 @@ require('database/koneksi.php');
                                                     <label class="form-label">Email</label>
                                                     <input type="email" class="form-control"
                                                         value="<?php echo $email ?> " name=" temail_editUser"
-                                                        placeholder="Masukan Email" required>
+                                                        placeholder="Masukan Email" readonly>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Hobi</label>
@@ -144,7 +143,7 @@ require('database/koneksi.php');
                                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus User
                                             </h1>
                                         </div>
-                                        <form action="hapus_user.php" method="POST">
+                                        <form action="controller/cruduser.php" method="POST">
                                             <input type="hidden" name="iduser" value="<?= $id ?>">
                                             <div class="modal-body">
                                                 <h5 class="text-center">Apakah Anda Ingin Menghapus <?= $nama ?>?

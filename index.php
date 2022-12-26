@@ -193,7 +193,7 @@ $sesPass = $_SESSION['password'];
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Profile</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="edit_profile.php" method="POST">
+                <form action="controller/crudprofile.php" method="POST">
                     <div class="modal-body">
 
                         <input type="hidden" class="form-control" value="<?php echo $sesId ?>" name="tid_profile"

@@ -1,6 +1,3 @@
-<?php
-require('database/koneksi.php');
-?>
 <html>
 
 <head>
@@ -51,6 +48,8 @@ require('database/koneksi.php');
                         </tr>
                         <!-- Menampilkan Data Admin -->
                         <?php
+                        include 'database/koneksi.php';
+
                         $query = "SELECT * FROM akun WHERE id_role = 1";
                         $result = mysqli_query($koneksi, $query);
                         $no = 1;
@@ -86,10 +85,10 @@ require('database/koneksi.php');
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Kategori</h1>
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Admin</h1>
                                         </div>
 
-                                        <form action="edit_admin.php" method="POST">
+                                        <form action="controller/crudadmin.php" method="POST">
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <label class="form-label">Id Admin</label>
@@ -104,7 +103,7 @@ require('database/koneksi.php');
                                                 <div class="mb-3">
                                                     <label class="form-label">Email</label>
                                                     <input type="text" class="form-control" value="<?php echo $email ?>"
-                                                        name="temail_editadmin" placeholder="Masukan Email" required>
+                                                        name="temail_editadmin" placeholder="Masukan Email" readonly>
                                                 </div>
                                                 <div class="row g-3 align-items-center">
                                                     <div class="col-auto">
@@ -140,10 +139,10 @@ require('database/koneksi.php');
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Kategori
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Admin
                                             </h1>
                                         </div>
-                                        <form action="hapus_admin.php" method="POST">
+                                        <form action="controller/crudadmin.php" method="POST">
                                             <input type="hidden" name="idadmin" value="<?= $id ?>">
                                             <div class="modal-body">
                                                 <h5 class="text-center">Apakah Anda Ingin Menghapus <?= $nama ?>?
@@ -173,11 +172,13 @@ require('database/koneksi.php');
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Kategori</h1>
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Admin</h1>
                             </div>
 
                             <!-- Auto Generate Id Kategori-->
                             <?php
+                            include 'database/koneksi.php';
+
                             $auto = mysqli_query($koneksi, "select max(id) as max_code from akun WHERE id_role = 1");
                             $data = mysqli_fetch_array($auto);
                             $code = $data['max_code'];
@@ -187,7 +188,7 @@ require('database/koneksi.php');
                             $id_admin = $huruf . sprintf("%03s", $urutan);
                             ?>
 
-                            <form action="tambah_admin.php" method="POST">
+                            <form action="controller/crudadmin.php" method="POST">
                                 <div class="modal-body">
                                     <div class="mb-3">
                                         <label class="form-label">Id Admin</label>
