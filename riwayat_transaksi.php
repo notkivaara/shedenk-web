@@ -60,7 +60,7 @@
                             $color = ($no % 2 == 1) ? "white" : "#eee";
                         ?>
                         <tr align="center" bgcolor=<?php echo $color; ?>>
-                            <td><?php echo $no; ?></td>
+                            <td><?php echo $no++; ?></td>
                             <td><?php echo $idtr; ?></td>
                             <td><?php echo $tgl; ?></td>
                             <td><?php echo $jml; ?></td>
@@ -68,17 +68,16 @@
                             <td>User</td>
                             <td>
                                 <a href="#"><input type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#modalDetailTransaksi" value="Detail">
+                                        data-bs-target="#modalDetailTransaksi<? $no ?>" value="Detail">
                                 </a>
                             </td>
                         </tr>
                         <?php
-                            $no++;
                         } ?>
                     </table>
                     <!-- Modal Detail Transaksi -->
-                    <div class="modal fade" id="modalDetailTransaksi" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="modalDetailTransaksi<? $no ?>" data-bs-backdrop="static"
+                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
