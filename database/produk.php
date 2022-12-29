@@ -1,8 +1,10 @@
 <?php
 include 'database.php';
-class produk extends database {
-    public function autoGenerateIdProduk(){
-        $sql="select max(id) as max_code from produk";
+class produk extends database
+{
+    public function autoGenerateIdProduk()
+    {
+        $sql = "select max(id) as max_code from produk";
         $auto = mysqli_query($this->con, $sql);
         $data = mysqli_fetch_array($auto);
         $code = $data['max_code'];
@@ -28,9 +30,10 @@ class produk extends database {
         $sql = "SELECT * FROM kategori";
         return mysqli_query($this->con, $sql);
     }
-    public function showKategori($result_rkategori){
-        while($row = mysqli_fetch_array($result_rkategori)){
-            echo "<option value='".$row['id']."'>".$row['nama']."</option>";
+    public function showKategori($result_rkategori)
+    {
+        while ($row = mysqli_fetch_array($result_rkategori)) {
+            echo "<option value='" . $row['id'] . "'>" . $row['nama'] . "</option>";
         }
     }
     public function getGambar($id_gambar) {
@@ -55,7 +58,8 @@ class produk extends database {
             }
         }
     }
-    public function getStatusById($id){
+    public function getStatusById($id)
+    {
         $sql = "SELECT produk.status FROM produk WHERE id = '$id'";
         return mysqli_query($this->con, $sql);
     }
@@ -92,34 +96,35 @@ class produk extends database {
     //         echo "<option value='".$row['id']."'>".$row['nama']."</option>";
     //     }
     // }
-//     public function showProduk($result){
-//         $no = 1;
-//                     while ($row = mysqli_fetch_array($result_rproduk)) {
-//                         $id = $row['id'];
-//                         $id_kategori = $row['id_kategori'];
-//                         $nama = $row['nama'];
-//                         $harga = $row['harga'];
-//                         $kategori = $row['nama_kategori'];
-//                         $status = $row['status'];
-//                         $id_gambar=$row['id_gambar'];
-                    
-//                         echo "<tr align='center'>
-//                         <td>".$no."</td>
-//                         <td>".$id."</td>
-//                         <td>".$nama."</td>
-//                         <td>".$kategori."</td>
-//                         <td>Rp.".$harga."</td>";
-//                         if($status=="Tersedia"){
-//                             echo '<td><button class="btn btn-success btn-sm">Tersedia</button></td>';
-//                         }else {
-//                             echo '<td><button class="btn btn-danger btn-sm">Terjual</button></td>';
-//                         }
-                        
-//     }
-// }
-    public function showStatusById($result_rstatusbyid){
-        while($row = mysqli_fetch_array($result_rstatusbyid)){
-            if($row['status']=="Tersedia"){
+    //     public function showProduk($result){
+    //         $no = 1;
+    //                     while ($row = mysqli_fetch_array($result_rproduk)) {
+    //                         $id = $row['id'];
+    //                         $id_kategori = $row['id_kategori'];
+    //                         $nama = $row['nama'];
+    //                         $harga = $row['harga'];
+    //                         $kategori = $row['nama_kategori'];
+    //                         $status = $row['status'];
+    //                         $id_gambar=$row['id_gambar'];
+
+    //                         echo "<tr align='center'>
+    //                         <td>".$no."</td>
+    //                         <td>".$id."</td>
+    //                         <td>".$nama."</td>
+    //                         <td>".$kategori."</td>
+    //                         <td>Rp.".$harga."</td>";
+    //                         if($status=="Tersedia"){
+    //                             echo '<td><button class="btn btn-success btn-sm">Tersedia</button></td>';
+    //                         }else {
+    //                             echo '<td><button class="btn btn-danger btn-sm">Terjual</button></td>';
+    //                         }
+
+    //     }
+    // }
+    public function showStatusById($result_rstatusbyid)
+    {
+        while ($row = mysqli_fetch_array($result_rstatusbyid)) {
+            if ($row['status'] == "Tersedia") {
                 echo "<div>
                     <input type='radio' id='tersedia' name='tstatus_editproduk' value='Tersedia' checked>
                     <label for='tersedia'>Tersedia</label>
@@ -141,4 +146,3 @@ class produk extends database {
         }
     }
 }
-?>
