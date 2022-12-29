@@ -1,16 +1,25 @@
+<?php
+    include_once 'database/produk.php';
+    include_once 'database/koneksi.php';
+    $produk = new produk();
+    $produk->connectMySQL();
+    $result_transaksi = $produk->getTransaksi();
+    $result_produktersisa = $produk->getProdukTersisa();
+    $result_produkterjual = $produk->getProdukTerjual();
+?>
 <div class="animated fadeIn">
     <!-- Widgets  -->
     <div class="row">
-    <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6">
             <div class="card">
                 <div class="card-body">
                     <div class="stat-widget-five">
                         <div class="stat-icon dib flat-color-2">
-                            <a href="#"><i class="fa-solid fa-dollar text-primary"></i></a>
+                            <a href="#"><i class="fa-solid fa-wallet text-primary"></i></a>
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text">Rp.<span class="count">2000</span></div>
+                                <div class="stat-text">Rp.<span class="count"><?php echo $produk->showTotalHargaTransaksi($result_transaksi);?></span></div>
                                 <div class="stat-heading">Pendapatan</div>
                             </div>
                         </div>
@@ -28,7 +37,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">3435</span></div>
+                                <div class="stat-text"><span class="count"><?php echo mysqli_num_rows($result_produkterjual)?></span></div>
                                 <div class="stat-heading">Produk Terjual</div>
                             </div>
                         </div>
@@ -46,7 +55,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">349</span></div>
+                                <div class="stat-text"><span class="count"><?php echo mysqli_num_rows($result_transaksi)?></span></div>
                                 <div class="stat-heading">Transaksi</div>
                             </div>
                         </div>
@@ -64,7 +73,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">2986</span></div>
+                                <div class="stat-text"><span class="count"><?php echo mysqli_num_rows($result_produktersisa)?></span></div>
                                 <div class="stat-heading">Produk Tersisa</div>
                             </div>
                         </div>

@@ -96,8 +96,6 @@ button {
     border-radius: 3px;
 }
 
-
-
 @media (max-width: 880px) {
     .container {
         width: 100%;
