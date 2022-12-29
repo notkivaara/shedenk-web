@@ -3,6 +3,9 @@ header('Content-Type: application/json; charset=utf8');
 
 require_once('koneksiservice.php');
 
+include '../database/koneksi.php';
+
+
 $tgl_reg = date("y-m-d");
 $tgl_upd = date("y-m-d");
 
@@ -21,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $hobi = $_POST['hobi'];
+
         $query = "SELECT * FROM akun";
         $cek = mysqli_query($kon, $query);
         $count = mysqli_num_rows($cek);
