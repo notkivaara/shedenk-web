@@ -5,6 +5,7 @@ if (!isset($_SESSION['id'])) {
     $_SESSION['msg'] = "Login Dulu";
     header('Location: login.php');
 }
+
 $sesId = $_SESSION['id'];
 $sesNama = $_SESSION['nama'];
 $sesEmail = $_SESSION['email'];
@@ -161,6 +162,7 @@ $sesPass = $_SESSION['password'];
                         <div class="user-area dropdown float-right">
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
+
                                 <img class="user-avatar rounded-circle" src="images/zein.png" alt="User Avatar">
                             </a>
                             <div class="user-menu dropdown-menu">

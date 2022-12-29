@@ -48,24 +48,31 @@
 
                         include 'database/koneksi.php';
 
-                        $query = "SELECT * FROM transaksi";
-                        $result = mysqli_query($koneksi, $query);
+                        $transaksi = "SELECT * FROM transaksi";
+                        $result = mysqli_query($koneksi, $transaksi);
                         $no = 1;
                         while ($row = mysqli_fetch_array($result)) {
                             $id = $row['id'];
                             $tgl = $row['tgl_transaksi'];
                             $jml = $row['jumlah_barang'];
                             $total = $row['total_harga'];
+                            $iduser = $row['id_user'];
 
-                            $color = ($no % 2 == 1) ? "white" : "#eee";
+                            $akun = "SELECT * FROM akun WHERE id = '$iduser'";
+                            $result2 = mysqli_query($koneksi, $akun);
+                            while ($row = mysqli_fetch_array($result2)) {
+                                $namauser = $row['nama'];
+
+                                $color = ($no % 2 == 1) ? "white" : "#eee";
+
                         ?>
                         <tr align="center" bgcolor=<?php echo $color; ?>>
-                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $no; ?></td>
                             <td><?php echo $id; ?></td>
                             <td><?php echo $tgl; ?></td>
                             <td><?php echo $jml; ?></td>
                             <td><?php echo $total; ?></td>
-                            <td>User</td>
+                            <td><?php echo $namauser ?></td>
                             <td>
                                 <a href="#"><input type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#modalDetailTransaksi" onclick="dataId('<?php echo $id ?>')"
@@ -74,6 +81,8 @@
                             </td>
                         </tr>
                         <?php
+                                $no++;
+                            }
                         } ?>
                     </table>
                 </div>
