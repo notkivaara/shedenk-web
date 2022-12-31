@@ -126,7 +126,7 @@ $sesPass = $_SESSION['password'];
                         <div class="user-area dropdown float-right">
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                                <img class="user-avatar rounded-circle" src="images/profile.png" alt="User Avatar">
+                                <img class="user-avatar rounded-circle" src="images/profilse.png" alt="User Avatar">
                             </a>
                             <div class="user-menu dropdown-menu">
                                 <li><a href="#" class="profile" data-bs-toggle="modal"
