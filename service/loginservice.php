@@ -11,11 +11,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $cek = mysqli_query($kon, $query);
         $count = mysqli_num_rows($cek);
 
-        if ($count == 1) {
-            echo json_encode("berhasil");
+        $res = $kon->query($query);
+        $reuslt = [];
+
+        if ($res->num_rows > 0) {
+            $row = $res->fetch_assoc();
+            $reuslt['loginStatus'] = true;
+            $reuslt['message'] = "Login Berhasil";
+
+            $reuslt["akun"] = $row;
         } else {
-            echo json_encode("gagal");
-        }
+            $reuslt['loginStatus'] = false;
+            $reuslt['message'] = "invalid Login Detail";
+        };
+
+        $json_data = json_encode($reuslt);
+
+        echo $json_data;
     }
 } else {
     echo json_encode(
