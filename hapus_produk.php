@@ -12,7 +12,7 @@ if(isset($_POST['hapus_produk'])) {
                 document.location='index.php?url=produk';
             </script>";
     } else {
-        echo "<script>alert('Gagal Menghapus Data');
+        echo "<script>alert('Gagal Menghapus Data, Produk terdapat di tabel transaksi');
                 document.location='index.php?url=produk';
             </script>";
     }

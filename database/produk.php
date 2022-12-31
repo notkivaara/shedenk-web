@@ -43,9 +43,7 @@ class produk extends database
     public function showGambar($result_rgambarbyid){
         $no=1;
         while($row = mysqli_fetch_array($result_rgambarbyid)){
-            echo "<div class='col-5 m-3'><img src='upload/".$row['nama']."'></div>
-            <div class='col-5 m-3'><a href='index.php?url=produk?nama=".$row['nama']."'><input type='button' class='btn btn-danger btn-sm' data-bs-toggle='modal'
-            data-bs-target='#modalHapusGambar<?= $no ?>' value='Hapus'></a></div>";
+            echo "<div class='col-5 m-3'><img src='upload/".$row['nama']."'></div>";
             $no++;
         }
     }

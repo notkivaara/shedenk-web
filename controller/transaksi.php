@@ -46,7 +46,7 @@ echo $id;
                 <td><?php echo $idpr; ?></td>
                 <td><?php echo $nampro; ?></td>
                 <td><?php echo $namkat; ?></td>
-                <td><?php echo $hrg; ?></td>
+                <td><?php echo "Rp. ".$hrg; ?></td>
             </tr>
             <?php
                         $no++;

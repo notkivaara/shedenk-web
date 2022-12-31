@@ -38,31 +38,26 @@
                             <th>No</th>
                             <th>Id Transaksi</th>
                             <th>Tanggal Transaksi</th>
-                            <th>Jumlah Produk</th>
                             <th>Total Harga</th>
                             <th>Nama Pembeli</th>
                             <th>Aksi</th>
                         </tr>
 
                         <?php
-
                         include 'database/koneksi.php';
-
-                        $transaksi = "SELECT * FROM transaksi";
+                        $transaksi = "SELECT * FROM transaksi JOIN detail_transaksi ON transaksi.id=detail_transaksi.id_transaksi GROUP BY transaksi.id";
                         $result = mysqli_query($koneksi, $transaksi);
                         $no = 1;
                         while ($row = mysqli_fetch_array($result)) {
                             $id = $row['id'];
                             $tgl = $row['tgl_transaksi'];
-                            $jml = $row['jumlah_barang'];
                             $total = $row['total_harga'];
-                            $iduser = $row['id_user'];
+                            $iduser = $row['id_akun'];
 
                             $akun = "SELECT * FROM akun WHERE id = '$iduser'";
                             $result2 = mysqli_query($koneksi, $akun);
                             while ($row = mysqli_fetch_array($result2)) {
                                 $namauser = $row['nama'];
-
                                 $color = ($no % 2 == 1) ? "white" : "#eee";
 
                         ?>
@@ -70,7 +65,6 @@
                             <td><?php echo $no; ?></td>
                             <td><?php echo $id; ?></td>
                             <td><?php echo $tgl; ?></td>
-                            <td><?php echo $jml; ?></td>
                             <td><?php echo $total; ?></td>
                             <td><?php echo $namauser ?></td>
                             <td>
