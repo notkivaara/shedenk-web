@@ -65,7 +65,7 @@
                             <td><?php echo $no; ?></td>
                             <td><?php echo $id; ?></td>
                             <td><?php echo $tgl; ?></td>
-                            <td><?php echo $total; ?></td>
+                            <td><?php echo "Rp. ".$total; ?></td>
                             <td><?php echo $namauser ?></td>
                             <td>
                                 <a href="#"><input type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"

@@ -116,7 +116,7 @@ $sesPass = $_SESSION['password'];
             <div class="top-left">
                 <div class="navbar-header">
                     <img src="images/logo.shedenk.png" alt="Logo" style="width: 70px">
-                    <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                    <!-- <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a> -->
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
@@ -135,7 +135,7 @@ $sesPass = $_SESSION['password'];
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
 
-                                <img class="user-avatar rounded-circle" src="images/zein.png" alt="User Avatar">
+                                <img class="user-avatar rounded-circle" src="images/profile.png" alt="User Avatar">
                             </a>
                             <div class="user-menu dropdown-menu">
                                 <li><a href="#" class="profile" data-bs-toggle="modal"
