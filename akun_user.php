@@ -68,70 +68,10 @@
                             <td><?php echo $treg; ?></td>
                             <td><?php echo $tupd; ?></td>
                             <td>
-                                <a href="#"><input type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditUser<?= $no ?>" value="Edit"></a>
                                 <a href="#"><input type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#modalHapusUser<?= $no ?>" value="Hapus"></a>
                             </td>
 
-                            <!-- Modal Edit User -->
-                            <div class="modal fade" id="modalEditUser<?= $no ?>" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit User</h1>
-                                        </div>
-                                        <form action="controller/cruduser.php" method="POST">
-                                            <div class="modal-body">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Id User</label>
-                                                    <input type="text" class="form-control" value="<?php echo $id ?>"
-                                                        name="tid_editUser" readonly>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Nama User</label>
-                                                    <input type="text" class="form-control" value="<?php echo $nama ?> "
-                                                        name="tnama_editUser" placeholder="Masukan Nama" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Email</label>
-                                                    <input type="email" class="form-control"
-                                                        value="<?php echo $email ?> " name=" temail_editUser"
-                                                        placeholder="Masukan Email" readonly>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Hobi</label>
-                                                    <input type="text" class="form-control" value="<?php echo $hobi ?> "
-                                                        name=" thobi_editUser" placeholder="Masukan Hobi" required>
-                                                </div>
-                                                <div class="row g-3 align-items-center">
-                                                    <div class="col-auto">
-                                                        <label class="form-label">Password Baru/Lama</label>
-                                                        <input type="text" class="form-control" name=" tpass_editUser"
-                                                            value="<?php echo $password ?> " placeholder="Masukan
-                                                            Password" required>
-                                                    </div>
-                                                    <div class="col-auto ">
-                                                        <label class="form-label">Konfirmasi Password</label>
-                                                        <input type="text" class="form-control"
-                                                            name=" tkonpass_editUser" placeholder="Masukan Password"
-                                                            required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger"
-                                                    data-bs-dismiss="modal">Keluar</button>
-                                                <button type="submit" class="btn btn-primary"
-                                                    name="simpan_editUser">Simpan</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Modal Edit User -->
 
                             <!-- Modal Hapus Kategori-->
                             <div class="modal fade" id="modalHapusUser<?= $no ?>" data-bs-backdrop="static"

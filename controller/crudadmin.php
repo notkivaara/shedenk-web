@@ -17,32 +17,34 @@ if (isset($_POST['simpan_tambahadmin'])) {
     if ($tpas == $tkonpass) {
         if ($tcek == 0) {
 
-            $tambah = mysqli_query($koneksi, "INSERT INTO akun (id, nama, email, password, tgl_register, tgl_update, id_role)
+            $tambah = mysqli_query($koneksi, "INSERT INTO akun (id, nama, email, password, hobi, tgl_register, tgl_update, id_role, gambar)
             VALUES ('$_POST[tid_tambahadmin]',
                      '$_POST[tnama_tambahadmin]',
                      '$temail',
                      '$_POST[tpass_tambahadmin]',
+                      NULL,
                      '$tgl_reg',
                      '$tgl_upd',
-                     1)");
+                     1,
+                     NULL)");
 
             if ($tambah) {
                 echo "<script>alert('Berhasil Menambahkan Data');
-                    document.location='../index.php?url=admin';
+                    document.location='../home.php?url=admin';
                     </script>";
             } else {
                 echo "<script>alert('Gagal Menambahkan Data');
-                    document.location='../index.php?url=admin';
+                    document.location='../home.php?url=admin';
                     </script>";
             }
         } else {
             echo "<script>alert('Email Sudah Terpakai');
-                    document.location='../index.php?url=admin';
+                    document.location='../home.php?url=admin';
                     </script>";
         }
     } else {
         echo "<script>alert('Password Tidak Sama');
-                    document.location='../index.php?url=admin';
+                    document.location='../home.php?url=admin';
                     </script>";
     }
 } else if (isset($_POST['simpan_editadmin'])) {
@@ -53,20 +55,20 @@ if (isset($_POST['simpan_tambahadmin'])) {
 
     if ($epass == $ekonpass) {
 
-        $simpan = mysqli_query($koneksi, "UPDATE akun SET nama = '$_POST[tnama_editadmin]', email = '$eemail', password = '$epass', tgl_update='$tgl_upd' WHERE id ='$_POST[tid_editadmin]' ");
+        $simpan = mysqli_query($koneksi, "UPDATE akun SET nama = '$_POST[tnama_editadmin]', email = '$eemail', password = '$epass', tgl_update='$tgl_upd',  WHERE id ='$_POST[tid_editadmin]' ");
 
         if ($simpan) {
             echo "<script>alert('Berhasil Memperbarui Data');
-                    document.location='../index.php?url=admin';
+                    document.location='../home.php?url=admin';
                 </script>";
         } else {
             echo "<script>alert('Gagal Memperbarui Data');
-                    document.location='../index.php?url=admin';
+                    document.location='../home.php?url=admin';
                 </script>";
         }
     } else {
         echo "<script>alert('Konfirmasi Password Salah');
-                document.location='../index.php?url=admin';
+                document.location='../home.php?url=admin';
             </script>";
     }
 } else if (isset($_POST['hapus_admin'])) {
@@ -75,11 +77,11 @@ if (isset($_POST['simpan_tambahadmin'])) {
 
     if ($hapus) {
         echo "<script>alert('Berhasil Menghapus Data');
-                document.location='../index.php?url=admin';
+                document.location='../home.php?url=admin';
             </script>";
     } else {
         echo "<script>alert('Gagal Menghapus Data');
-                document.location='../index.php?url=admin';
+                document.location='../home.php?url=admin';
             </script>";
     }
 }

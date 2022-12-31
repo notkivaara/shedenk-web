@@ -30,14 +30,14 @@ if (isset($_POST['btn_login'])) {
                     $_SESSION['email'] = $emailVal;
                     $_SESSION['password'] = $passVal;
 
-                    header('Location: ../index.php?url=dashboard');
+                    header('Location: ../home.php?url=dashboard');
                 } else if ($role == 3) {
                     $_SESSION['id'] = $id;
                     $_SESSION['nama'] = $nama;
                     $_SESSION['email'] = $emailVal;
                     $_SESSION['password'] = $passVal;
 
-                    header('Location: ../index.php?url=dashboard');
+                    header('Location: ../home.php?url=dashboard');
                 } else {
                     header('Location: ../login.php?error= Kamu Bukan Seorang Admin!');
                     exit();
