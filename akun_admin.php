@@ -41,9 +41,6 @@
                             <th>Id</th>
                             <th>Nama</th>
                             <th>Email</th>
-                            <th>Password</th>
-                            <th>Tanggal Ditambahkan</th>
-                            <th>Terakhir Update</th>
                             <th colspan="2">Aksi</th>
                         </tr>
                         <!-- Menampilkan Data Admin -->
@@ -57,9 +54,6 @@
                             $id = $row['id'];
                             $nama = $row['nama'];
                             $email = $row['email'];
-                            $password = $row['password'];
-                            $treg = $row['tgl_register'];
-                            $tupd = $row['tgl_update'];
 
                             $color = ($no % 2 == 1) ? "white" : "#eee";
                         ?>
@@ -68,9 +62,6 @@
                             <td><?php echo $id; ?></td>
                             <td><?php echo $nama; ?></td>
                             <td><?php echo $email; ?></td>
-                            <td><?php echo $password; ?></td>
-                            <td><?php echo $treg; ?></td>
-                            <td><?php echo $tupd; ?></td>
                             <td>
                                 <a href="#"><input type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#modalEditAdmin<?= $no ?>" value="Edit"></a>

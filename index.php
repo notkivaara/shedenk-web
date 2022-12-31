@@ -104,7 +104,7 @@ $sesPass = $_SESSION['password'];
                         </ul>
                     </li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
+            </div>
         </nav>
     </aside>
     <!-- /#left-panel -->
@@ -116,25 +116,16 @@ $sesPass = $_SESSION['password'];
             <div class="top-left">
                 <div class="navbar-header">
                     <img src="images/logo.shedenk.png" alt="Logo" style="width: 70px">
-                    <!-- <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a> -->
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
             <div class="top-right">
                 <div class="header-menu">
                     <div class="header-left">
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..."
-                                    aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
-
+                        <div class="form-inline"></div>
                         <div class="user-area dropdown float-right">
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-
                                 <img class="user-avatar rounded-circle" src="images/profile.png" alt="User Avatar">
                             </a>
                             <div class="user-menu dropdown-menu">
@@ -169,7 +160,6 @@ $sesPass = $_SESSION['password'];
                 </div>
                 <form action="controller/crudprofile.php" method="POST">
                     <div class="modal-body">
-
                         <input type="hidden" class="form-control" value="<?php echo $sesId ?>" name="tid_profile"
                             readonly>
                         <div class="mb-3">
@@ -184,7 +174,7 @@ $sesPass = $_SESSION['password'];
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="text" class="form-control" value="<?php echo $sesPass ?>" name=" tpass_profile"
+                            <input type="password" class="form-control" value="<?php echo $sesPass ?>" name=" tpass_profile"
                                 placeholder="Masukan Password" required>
                         </div>
                         <!-- <div class="row g-3 align-items-center">
