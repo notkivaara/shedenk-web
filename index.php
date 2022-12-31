@@ -50,19 +50,6 @@ $sesPass = $_SESSION['password'];
         min-height: 335px;
     }
 
-    #flotPie1 {
-        height: 150px;
-    }
-
-    #flotPie1 td {
-        padding: 3px;
-    }
-
-    #flotPie1 table {
-        top: 20px !important;
-        right: -10px !important;
-    }
-
     .chart-container {
         display: table;
         min-width: 270px;
@@ -71,30 +58,19 @@ $sesPass = $_SESSION['password'];
         padding-bottom: 10px;
     }
 
-    #flotLine5 {
-        height: 105px;
-    }
-
-    #flotBarChart {
-        height: 150px;
-    }
-
-    #cellPaiChart {
-        height: 160px;
-    }
+    
     </style>
     <link rel="stylesheet" href="index.html" />
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/c147fe44e9.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li class="">
                         <a href="?url=dashboard"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                         <hr>
                     </li>
@@ -104,7 +80,6 @@ $sesPass = $_SESSION['password'];
                         <hr>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-id-badge"></i><a href="?url=produk">Produk</a>
-                                <h1></h1>
                             </li>
                             <li><i class="fa fa-bars"></i><a href="?url=kategori">Kategori</a></li>
                             <hr>
@@ -116,7 +91,6 @@ $sesPass = $_SESSION['password'];
                         <hr>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-id-badge"></i><a href="?url=user">User</a>
-                                <h1></h1>
                             </li>
                             <li><i class="fa fa-bars"></i><a href="?url=admin">Admin</a></li>
                             <hr>
@@ -141,7 +115,7 @@ $sesPass = $_SESSION['password'];
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <img class="w-25 h-25" src="images/logo.shedenk.png" alt="Logo">
+                    <img src="images/logo.shedenk.png" alt="Logo" style="width: 70px">
                     <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
@@ -149,7 +123,6 @@ $sesPass = $_SESSION['password'];
             <div class="top-right">
                 <div class="header-menu">
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
                             <form class="search-form">
                                 <input class="form-control mr-sm-2" type="text" placeholder="Search ..."
