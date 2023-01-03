@@ -2,9 +2,11 @@
 session_start();
 
 if (!isset($_SESSION['id'])) {
-    $_SESSION['msg'] = "Login Dulu";
-    header('Location: login.php');
+    echo "<script>alert('Berhasil Menghapus Data');
+            document.location='login.php';
+        </script>";
 }
+
 
 $sesId = $_SESSION['id'];
 $sesNama = $_SESSION['nama'];
@@ -127,6 +129,7 @@ $desember = $produk->getAndShowDesember();
                             <hr>
                         </ul>
                     </li>
+                    <?php if ($_SESSION['id_role'] == 3) : ?>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Akun</a>
@@ -139,6 +142,7 @@ $desember = $produk->getAndShowDesember();
                             <hr>
                         </ul>
                     </li>
+                    <?php endif; ?>
                     <li>
                         <a href="?url=transaksi" aria-haspopup="true" aria-expanded="false"> <i
                                 class="menu-icon fa fa-th"></i>Riwayat Transaksi</a>
@@ -313,9 +317,15 @@ $desember = $produk->getAndShowDesember();
             // Traffic Chart using chartist
             if ($('#traffic-chart').length) {
                 var chart = new Chartist.Line('#traffic-chart', {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun','Jul','Aug','Sep','Okt','Nov','Des'],
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt',
+                        'Nov', 'Des'
+                    ],
                     series: [
-                        [<?php echo $januari?>, <?php echo $februari?>, <?php echo $maret?>, <?php echo $april?>, <?php echo $mei?>, <?php echo $juni?>, <?php echo $juli?>, <?php echo $agustus?>, <?php echo $september?>, <?php echo $oktober?>, <?php echo $november?>, <?php echo $desember?>],    
+                        [<?php echo $januari ?>, <?php echo $februari ?>, <?php echo $maret ?>,
+                            <?php echo $april ?>, <?php echo $mei ?>, <?php echo $juni ?>,
+                            <?php echo $juli ?>, <?php echo $agustus ?>, <?php echo $september ?>,
+                            <?php echo $oktober ?>, <?php echo $november ?>, <?php echo $desember ?>
+                        ],
                     ]
                 }, {
                     low: 0,

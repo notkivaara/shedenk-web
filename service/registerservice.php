@@ -19,44 +19,45 @@ $huruf = "U";
 $id_user = $huruf . sprintf("%03s", $urutan);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['nama']) && $_POST['nama'] != "" && isset($_POST['email']) && $_POST['email'] != "" && isset($_POST['password']) && $_POST['password'] != "" && isset($_POST['hobi']) && $_POST['hobi'] != ""  && isset($_POST['gambar']) && $_POST['gambar'] != "") {
+    if (isset($_POST['nama']) && $_POST['nama'] != "" && isset($_POST['email']) && $_POST['email'] != "") {
         $nama = $_POST['nama'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $hobi = $_POST['hobi'];
-        $gambar = $_POST['gambar'];
+        // $gambar = $_POST['gambar'];
 
-        $query = "SELECT * FROM akun";
+        $query = "SELECT * FROM akun WHERE email = '$email' ";
         $cek = mysqli_query($kon, $query);
         $count = mysqli_num_rows($cek);
 
         if ($count == 1) {
-            echo json_encode("gagal");
-        } else if ($gambar == "") {
-            $insert1 = mysqli_query($koneksi, "INSERT INTO akun (id, nama, email, password, tgl_register, tgl_update, id_role, gambar)
+            echo json_encode("Email Sudah Terdaftar");
+        }
+        // else if ($gambar == "") {
+        //     $insert1 = mysqli_query($koneksi, "INSERT INTO akun (id, nama, email, password, tgl_register, tgl_update, id_role, gambar)
+        //     VALUES ('$id_user',
+        //              '$nama',
+        //              '$email',
+        //              '$password',
+        //              '$tgl_reg',
+        //              '$tgl_upd',
+        //              2,
+        //              NULL)");
+        //     $cek2 = mysqli_query($kon, $insert);
+        //     if ($cek2) {
+        //         echo json_encode("berhasil");
+        //     }
+        // } 
+        else {
+            $insert2 = "INSERT INTO akun (id, nama, email, password, tgl_register, tgl_update, id_role)
             VALUES ('$id_user',
                      '$nama',
                      '$email',
                      '$password',
                      '$tgl_reg',
                      '$tgl_upd',
-                     2,
-                     NULL)");
-            $cek2 = mysqli_query($kon, $insert);
-            if ($cek2) {
-                echo json_encode("berhasil");
-            }
-        } else {
-            $insert2 = mysqli_query($koneksi, "INSERT INTO akun (id, nama, email, password, tgl_register, tgl_update, id_role, gambar)
-            VALUES ('$id_user',
-                     '$nama',
-                     '$email',
-                     '$password',
-                     '$tgl_reg',
-                     '$tgl_upd',
-                     2,
-                     '$gambar')");
-            $cek3 = mysqli_query($kon, $insert);
+                     2)";
+            $cek3 = mysqli_query($kon, $insert2);
             if ($cek3) {
                 echo json_encode("berhasil");
             }

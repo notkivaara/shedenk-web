@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($count == 1) {
             echo json_encode("gagal");
         } else {
-            $simpan = mysqli_query($koneksi, "UPDATE akun SET nama = '$nama', email = '$email', password = '$password', tgl_update='$tgl_upd' WHERE id ='$id' ");
-            $cek2 = mysqli_query($kon, $insert);
+            $simpan = "UPDATE akun SET nama = '$nama', email = '$email', password = '$password', tgl_update='$tgl_upd' WHERE id ='$id' ";
+            $cek2 = mysqli_query($kon, $simpan);
             if ($cek2) {
                 echo json_encode("berhasil");
             }

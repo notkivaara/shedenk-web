@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if ($_SESSION['id_role'] != 3) {
+    echo "<script>alert('Kamu Bukan Super Admin');
+            document.location='home.php?url=dashboard';
+        </script>";
+}
+?>
+
 <html>
 
 <head>

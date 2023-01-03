@@ -29,6 +29,7 @@ if (isset($_POST['btn_login'])) {
                     $_SESSION['nama'] = $nama;
                     $_SESSION['email'] = $emailVal;
                     $_SESSION['password'] = $passVal;
+                    $_SESSION['id_role'] = $role;
 
                     header('Location: ../home.php?url=dashboard');
                 } else if ($role == 3) {
@@ -36,6 +37,7 @@ if (isset($_POST['btn_login'])) {
                     $_SESSION['nama'] = $nama;
                     $_SESSION['email'] = $emailVal;
                     $_SESSION['password'] = $passVal;
+                    $_SESSION['id_role'] = $role;
 
                     header('Location: ../home.php?url=dashboard');
                 } else {
