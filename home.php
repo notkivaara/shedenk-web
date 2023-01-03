@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['id'])) {
-    echo "<script>alert('Berhasil Menghapus Data');
+    echo "<script>alert('Anda Harus Login Terlebih Dahulu');
             document.location='login.php';
         </script>";
 }

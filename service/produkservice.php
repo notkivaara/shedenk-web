@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 "nama" => $row["nama"],
                 "id_kategori" => $row["id_kategori"],
                 "harga" => $row["harga"],
+                "deskripsi" => $row["deskripsi"],
                 "status" => $row["status"],
                 "gambar" => $list_gambar,
             ));

@@ -16,7 +16,7 @@ if(isset($_POST['hapus_gambar'])) {
             </script>";
     } else {
         echo "<script>alert('Gagal Menghapus Gambar');
-                document.location='index.php?url=produk';
+                document.location='home.php?url=produk';
             </script>";
     }
 }

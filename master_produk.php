@@ -86,6 +86,12 @@ $result_rkategori = $produk->getKategori();
                                             <input type="text" class="form-control" name="harga" aria-label="rupiah">
                                         </div>
                                         <div class="mb-3">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" placeholder="Masukkan deskripsi produk"
+                                                    id="deskripsi" style="height: 100px" name="deskripsi"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
                                             <input type="file" id="foto" name="foto[]" onchange="preview_image();"
                                                 multiple />
                                         </div>
@@ -122,6 +128,7 @@ $result_rkategori = $produk->getKategori();
                             <th>Nama</th>
                             <th>Kategori</th>
                             <th>Harga</th>
+                            <th>Deskripsi</th>
                             <th>Status</th>
                             <th>Gambar</th>
                             <th colspan="2">Aksi</th>
@@ -129,13 +136,14 @@ $result_rkategori = $produk->getKategori();
                         <!-- Menampilkan Data -->
                         <?php
                     $query = "SELECT produk.*, kategori.id as id_kategori, kategori.nama as nama_kategori FROM produk JOIN kategori ON produk.id_kategori = kategori.id";
-                    $result_rproduk = mysqli_query($koneksi, $query);
+                    $result_rproduk = mysqli_query($produk->con, $query);
                     $no = 1;
                     while ($row = mysqli_fetch_array($result_rproduk)) {
                         $id = $row['id'];
                         $id_kategori = $row['id_kategori'];
                         $nama = $row['nama'];
                         $harga = $row['harga'];
+                        $deskripsi = $row['deskripsi'];
                         $kategori = $row['nama_kategori'];
                         $status = $row['status'];
                     ?>
@@ -145,6 +153,7 @@ $result_rkategori = $produk->getKategori();
                             <td><?php echo $nama; ?></td>
                             <td><?php echo $kategori?></td>
                             <td><?php echo "Rp. ".$harga; ?></td>
+                            <td><?php echo $deskripsi?></td>
                             <?php if($status=="Tersedia"){
                             echo '<td><button class="btn btn-success btn-sm">Tersedia</button></td>';
                         }else {
@@ -155,11 +164,11 @@ $result_rkategori = $produk->getKategori();
                                         data-bs-target="#modalGambarProduk<?= $no ?>" value="View"></a>
                             </td>
                             <td>
-                            <a href="#"><input type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditProduk<?= $no ?>" value="Edit"></a>
-                            <a href="#"><input type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#modalHapusProduk<?= $no ?>" value="Hapus"></a>
-                        </td>
+                                <a href="#"><input type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditProduk<?= $no ?>" value="Edit"></a>
+                                <a href="#"><input type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#modalHapusProduk<?= $no ?>" value="Hapus"></a>
+                            </td>
                             <!-- Modal View -->
 
                             <div class="modal fade" id="modalGambarProduk<?= $no ?>" data-bs-backdrop="static"
@@ -226,6 +235,13 @@ $result_rkategori = $produk->getKategori();
                                                     <span class="input-group-text">Rp</span>
                                                     <input type="text" class="form-control" name="tharga_editproduk"
                                                         aria-label="rupiah" value="<?= $harga?>">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="form-floating">
+                                                        <textarea class="form-control"
+                                                            style="height: 100px" name="tdeskripsi_editproduk"><?= $deskripsi?></textarea>
+                                                            <label for="floatingTextarea2">Deskripsi</label>
+                                                    </div>
                                                 </div>
                                                 <fieldset name="tstatus_editproduk">
                                                     <label for="status" class="form-label">Status</label>
@@ -327,4 +343,3 @@ $result_rkategori = $produk->getKategori();
 </body>
 
 </html>
-
