@@ -3,9 +3,9 @@
     include_once 'database/koneksi.php';
     $produk = new produk();
     $produk->connectMySQL();
-    $result_transaksi = $produk->getTransaksi();
-    $result_produktersisa = $produk->getProdukTersisa();
-    $result_produkterjual = $produk->getProdukTerjual();
+    $jumlahtransaksi = $produk->getTransaksi();
+    $produktersisa = $produk->getProdukTersisa();
+    $produkterjual = $produk->getProdukTerjual();
 ?>
 <div class="animated fadeIn">
     <!-- Widgets  -->
@@ -19,7 +19,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text">Rp.<span class="count"><?php echo $produk->showTotalHargaTransaksi($result_transaksi);?></span></div>
+                                <div class="stat-text">Rp.<span class="count"><?php echo $produk->showTotalHargaTransaksi();?></span></div>
                                 <div class="stat-heading">Pendapatan</div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count"><?php echo mysqli_num_rows($result_produkterjual)?></span></div>
+                                <div class="stat-text"><span class="count"><?php echo $produkterjual?></span></div>
                                 <div class="stat-heading">Produk Terjual</div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count"><?php echo mysqli_num_rows($result_transaksi)?></span></div>
+                                <div class="stat-text"><span class="count"><?php echo $jumlahtransaksi?></span></div>
                                 <div class="stat-heading">Transaksi</div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count"><?php echo mysqli_num_rows($result_produktersisa)?></span></div>
+                                <div class="stat-text"><span class="count"><?php echo $produktersisa?></span></div>
                                 <div class="stat-heading">Produk Tersisa</div>
                             </div>
                         </div>
@@ -100,30 +100,4 @@
             </div>
         </div><!-- /# column -->
     </div>
-
-
-    <!--  /Traffic -->
-    <div class="clearfix"></div>
-    <!-- Orders -->
-    <div class="orders">
-        <div class="row">
-
-        </div>
-    </div>
-    <!-- /.orders -->
-    <!-- To Do and Live Chat -->
-
-    <!-- /To Do and Live Chat -->
-    <!-- Calender Chart Weather  -->
-    <div class="row">
-
-    </div>
-    <!-- /Calender Chart Weather -->
-    <!-- Modal - Calendar - Add New Event -->
-
-    <!-- /#event-modal -->
-    <!-- Modal - Calendar - Add Category -->
-
-    <!-- /#add-category -->
 </div>
-<!-- .animated -->

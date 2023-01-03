@@ -63,22 +63,27 @@ class produk extends database
     }
     public function getTransaksi() {
         $sql = "SELECT * FROM transaksi";
-        return mysqli_query($this->con, $sql);
+        $result = mysqli_query($this->con, $sql);
+        return mysqli_num_rows($result);
     }
-    public function showTotalHargaTransaksi($result_transaksi){
+    public function showTotalHargaTransaksi(){
         $total_harga = 0;
-        while($row = mysqli_fetch_array($result_transaksi)){
+        $sql = "SELECT * FROM transaksi";
+        $result = mysqli_query($this->con, $sql);
+        while($row = mysqli_fetch_array($result)){
             $total_harga=$total_harga+$row['total_harga'];
         }
         return $total_harga;
     }
     public function getProdukTersisa() {
         $sql = "SELECT * FROM produk WHERE produk.status='Tersedia'";
-        return mysqli_query($this->con, $sql);
+        $result = mysqli_query($this->con, $sql);  
+        return mysqli_num_rows($result);
     }
     public function getProdukTerjual() {
         $sql = "SELECT * FROM produk WHERE produk.status='Terjual'";
-        return mysqli_query($this->con, $sql);
+        $result = mysqli_query($this->con, $sql);  
+        return mysqli_num_rows($result);
     }
     // public function showJumlahTransaksi($result_transaksi){
     //     while($row = mysqli_fetch_array($result_transaksi)){
@@ -142,5 +147,89 @@ class produk extends database
                 </div>";
             }
         }
+    }
+    public function getAndShowJanuari(){
+        $resultjanuari = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 12 AND YEAR(tgl_transaksi) = 2022");
+        while($datajanuari = mysqli_fetch_array($resultjanuari)){
+        $januari = $datajanuari['total'];
+        }
+        return $januari;
+    }
+    public function getAndShowFebruari(){
+        $resultfebruari = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 2 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($datafebruari = mysqli_fetch_array($resultfebruari)){
+        $februari = $datafebruari['total'];
+        }
+        return $februari;
+    }
+    public function getAndShowMaret(){
+        $resultmaret = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 3 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($datamaret = mysqli_fetch_array($resultmaret)){
+        $maret = $datamaret['total'];
+        }
+        return $maret;
+    }
+    public function getAndShowApril(){
+        $resultapril = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 4 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($dataapril = mysqli_fetch_array($resultapril)){
+        $april = $dataapril['total'];
+        }
+        return $april;
+    }
+    public function getAndShowMei(){
+        $resultmei = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 5 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($datamei = mysqli_fetch_array($resultmei)){
+        $mei = $datamei['total'];
+        }
+        return $mei;
+    }
+    public function getAndShowJuni(){
+        $resultjuni = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 6 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($datajuni = mysqli_fetch_array($resultjuni)){
+        $juni = $datajuni['total'];
+        }
+        return $juni;
+    }
+    public function getAndShowJuli(){
+        $resultjuli = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 7 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($datajuli = mysqli_fetch_array($resultjuli)){
+        $juli = $datajuli['total'];
+        }
+        return $juli;
+    }
+    public function getAndShowAgustus(){
+        $resultagustus = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 8 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($dataagustus = mysqli_fetch_array($resultagustus)){
+        $agustus = $dataagustus['total'];
+        }
+        return $agustus;
+    }
+    public function getAndShowSeptember(){
+        $resultseptember = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 9 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($dataseptember = mysqli_fetch_array($resultseptember)){
+        $september = $dataseptember['total'];
+        }
+        return $september;
+    }
+    public function getAndShowOktober(){
+        $resultoktober = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 10 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($dataoktober = mysqli_fetch_array($resultoktober)){
+        $oktober = $dataoktober['total'];
+        }
+        return $oktober;
+    }
+    public function getAndShowNovember(){
+        $resultnovember = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 11 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($datanovember = mysqli_fetch_array($resultnovember)){
+        $november = $datanovember['total'];
+        }
+        return $november;
+    }
+    public function getAndShowDesember(){
+        $resultdesember = mysqli_query($this->con,"SELECT SUM(total_harga) as total FROM transaksi WHERE MONTH(tgl_transaksi) = 12 AND YEAR(tgl_transaksi) = YEAR(CURRENT_DATE)");
+        while($datadesember = mysqli_fetch_array($resultdesember)){
+        $desember = $datadesember['total'];
+        }
+        return $desember;
     }
 }

@@ -129,7 +129,7 @@ $result_rkategori = $produk->getKategori();
                         <!-- Menampilkan Data -->
                         <?php
                     $query = "SELECT produk.*, kategori.id as id_kategori, kategori.nama as nama_kategori FROM produk JOIN kategori ON produk.id_kategori = kategori.id";
-                    $result_rproduk = mysqli_query(mysqli_connect("localhost", "root", "", "db_shedenk"), $query);
+                    $result_rproduk = mysqli_query($koneksi, $query);
                     $no = 1;
                     while ($row = mysqli_fetch_array($result_rproduk)) {
                         $id = $row['id'];
