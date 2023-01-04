@@ -27,7 +27,6 @@
                 <input type="password" placeholder="Masukan Password" name="txt_password">
                 <button type="submit" class="button-login" name="btn_login" id="btn-login">Login</button>
                 <br>
-                <a href="?url=lupapassword">Lupa Password</a>
             </form>
         </div>
         <div class="right w-50 h-100% ">

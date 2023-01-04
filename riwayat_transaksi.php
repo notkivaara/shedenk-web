@@ -25,11 +25,6 @@
     <br>
     <div class="card">
         <div class="card-body">
-            <div class="row">
-                <div class="col-lg-3">
-                    <button type="button" class="btn btn-primary">Export</button>
-                </div>
-            </div>
             <br>
             <div class="row">
                 <div class="col-lg-12">
