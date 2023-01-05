@@ -1,3 +1,12 @@
+<?php
+    include_once 'database/produk.php';
+    include_once 'database/koneksi.php';
+    $produk = new produk();
+    $produk->connectMySQL();
+    $jumlahtransaksi = $produk->getTransaksi();
+    $produktersisa = $produk->getProdukTersisa();
+    $produkterjual = $produk->getProdukTerjual();
+?>
 <div class="animated fadeIn">
     <!-- Widgets  -->
     <div class="row">
@@ -5,12 +14,12 @@
             <div class="card">
                 <div class="card-body">
                     <div class="stat-widget-five">
-                        <div class="stat-icon dib flat-color-1">
-                            <a href="#"><i class="fa-solid fa-dollar-sign text-primary"></i></a>
+                        <div class="stat-icon dib flat-color-2">
+                            <a href="#"><i class="fa-solid fa-wallet text-primary"></i></a>
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text">Rp. <span class="count">213000</span></div>
+                                <div class="stat-text">Rp.<span class="count"><?php echo $produk->showTotalHargaTransaksi();?></span></div>
                                 <div class="stat-heading">Pendapatan</div>
                             </div>
                         </div>
@@ -28,7 +37,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">3435</span></div>
+                                <div class="stat-text"><span class="count"><?php echo $produkterjual?></span></div>
                                 <div class="stat-heading">Produk Terjual</div>
                             </div>
                         </div>
@@ -46,7 +55,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">349</span></div>
+                                <div class="stat-text"><span class="count"><?php echo $jumlahtransaksi?></span></div>
                                 <div class="stat-heading">Transaksi</div>
                             </div>
                         </div>
@@ -64,7 +73,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">2986</span></div>
+                                <div class="stat-text"><span class="count"><?php echo $produktersisa?></span></div>
                                 <div class="stat-heading">Produk Tersisa</div>
                             </div>
                         </div>
@@ -91,30 +100,4 @@
             </div>
         </div><!-- /# column -->
     </div>
-
-
-    <!--  /Traffic -->
-    <div class="clearfix"></div>
-    <!-- Orders -->
-    <div class="orders">
-        <div class="row">
-
-        </div>
-    </div>
-    <!-- /.orders -->
-    <!-- To Do and Live Chat -->
-
-    <!-- /To Do and Live Chat -->
-    <!-- Calender Chart Weather  -->
-    <div class="row">
-
-    </div>
-    <!-- /Calender Chart Weather -->
-    <!-- Modal - Calendar - Add New Event -->
-
-    <!-- /#event-modal -->
-    <!-- Modal - Calendar - Add Category -->
-
-    <!-- /#add-category -->
 </div>
-<!-- .animated -->
